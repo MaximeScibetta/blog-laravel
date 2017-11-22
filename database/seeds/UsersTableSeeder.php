@@ -18,5 +18,6 @@ class UsersTableSeeder extends Seeder
             'email' => 'maxime.scibetta@outlook.com',
             'password' => Hash::make('secret'),
         ]);
+        
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Foundation\Auth\User;
+
 /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -12,10 +14,5 @@
 */
 
 Route::get('/', function () {
-    return 'Hello world !';
-});
-
-Route::get('/posts', function () {
-    return 'Ici j\'affiche mes posts';
 });
 
