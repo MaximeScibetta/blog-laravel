@@ -12,5 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return 'Hello world !';
 });
+
+Route::get('/posts', function () {
+    return 'Ici j\'affiche mes posts';
+});
+
