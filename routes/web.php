@@ -11,8 +11,6 @@
     |
 */
 
-dd( app() );
-
 Route::get('/', function () {
     return 'Hello world !';
 });
