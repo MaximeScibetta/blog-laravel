@@ -14,14 +14,20 @@ use Blog\Post;
     |
 */
 
-Route::get('/', 'PostsController@index');
+Route::get('/', 'PostsController@index')->name('home');
 Route::get('/posts', 'PostsController@index');
 
 Route::get('/post/{post}', 'PostController@show');
 
-Route::post('/comments', 'CommentsController@store');
+Route::post('/comments', 'CommentsController@store')->middleware('auth');
 
 Route::get('/store-post', function() {
-    return view('posts.store');
+    return view('posts.store')->middleware('can:store-post');
 });
-Route::post('/store-post', 'PostController@store');
+Route::post('/store-post', 'PostController@store')->middleware('can:store-post');
+
+Route::get('/login', 'SessionController@create')->name('login');
+Route::post('/login', 'SessionController@authenticate');
+Route::get('/logout', 'SessionController@destroy');
+Route::get('/register', 'RegistrationController@register');
+Route::post('/register', 'RegistrationController@store');

@@ -11,7 +11,7 @@
             <label for="post-content">Your post content :</label>
             <textarea name="body" id="post-content" class="form-control">{{old('body')}}</textarea>
         </div>
-        <input type="hidden" name="user_id" value="1">
+        <input type="hidden" name="user_id" value="{{auth()->id()}}">
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
     @include('partials.validation-errors')
