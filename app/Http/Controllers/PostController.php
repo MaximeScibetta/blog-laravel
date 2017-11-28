@@ -4,6 +4,7 @@ namespace Blog\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Blog\Post;
+use Blog\Http\Requests\StoreBlogPost;
 
 class PostController extends Controller
 {
@@ -14,7 +15,7 @@ class PostController extends Controller
         return view('posts.show', compact('post', 'date'));
     }
 
-    public function store(){
+    public function store(StoreBlogPost $request){
         $post = Post::create(request()->all());
         return redirect('post/' . $post->id);
     }
