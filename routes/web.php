@@ -14,16 +14,14 @@ use Blog\Post;
     |
 */
 
-Route::get('/', function () {
-    return view('posts.index');
-});
+Route::get('/', 'PostsController@index');
+Route::get('/posts', 'PostsController@index');
 
-Route::get('/posts', function () {
-    $blogPosts = Post::all();
-    return view( 'posts.index', compact('blogPosts') );
-});
+Route::get('/post/{post}', 'PostController@show');
 
-Route::get('/post/{id}', function ($id) {
-    $post = Post::find($id);
-    return view( 'posts.show', compact('post') );
+Route::post('/comments', 'CommentsController@store');
+
+Route::get('/store-post', function() {
+    return view('posts.store');
 });
+Route::post('/store-post', 'PostController@store');

@@ -15,7 +15,7 @@
             <div class="col-sm-8 blog-main">
                 @yield('main-content')
                 @yield('single-content')
-                @include('partials.pagination')
+                @yield('add-content')
             </div>
             @include('layouts.aside')
         </div>

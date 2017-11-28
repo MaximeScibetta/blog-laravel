@@ -13,11 +13,11 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        \Blog\User::create([
+        User::create([
             'name' => 'Maxime',
             'email' => 'maxime.scibetta@outlook.com',
-            'password' => Hash::make('secret'),
+            'password' => Hash::make('secret'), 
         ]);
-        
+        factory(User::class, 10)->create();
     }
 }
