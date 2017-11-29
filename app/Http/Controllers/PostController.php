@@ -2,7 +2,7 @@
 
 namespace Blog\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
 use Blog\Post;
 use Blog\Http\Requests\StoreBlogPost;
 
@@ -17,6 +17,19 @@ class PostController extends Controller
 
     public function store(StoreBlogPost $request){
         $post = Post::create(request()->all());
+        return redirect('post/' . $post->id);
+    }
+
+    public function edit(Post $post)
+    {
+        return view('posts.edit', compact('post'));
+    }
+    
+    public function saveEdit(Request $request, $id)
+    {
+        $post = Post::findOrFail($id);
+        $input = Request::all();
+        $post->update($input);
         return redirect('post/' . $post->id);
     }
 }

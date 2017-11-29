@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://getbootstrap.com/docs/4.0/examples/blog/blog.css" >
     <title>Laravel Blog</title>
+    <style>
+    #post-title{
+        display: block;
+        width: 100%;
+    }
+    </style>
 </head>
 <body>
     @include('layouts.header')

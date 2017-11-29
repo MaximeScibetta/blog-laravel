@@ -18,6 +18,8 @@ Route::get('/', 'PostsController@index')->name('home');
 Route::get('/posts', 'PostsController@index');
 
 Route::get('/post/{post}', 'PostController@show');
+Route::get('/post/edit/{post}', 'PostController@edit');
+Route::post('/post/edit/{post}', 'PostController@saveEdit');
 
 Route::post('/comments', 'CommentsController@store')->middleware('auth');
 
