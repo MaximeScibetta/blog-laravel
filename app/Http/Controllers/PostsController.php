@@ -4,11 +4,12 @@ namespace Blog\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Blog\Post;
+use Illuminate\Support\Facades\DB;
 
 class PostsController extends Controller
 {
     public function index(){
-        $blogPosts = Post::with('user')->latest()->paginate(5);
+        $blogPosts = Post::with('user')->latest()->simplePaginate(5);
         foreach ($blogPosts as $post) {
             $dateSrc = $post->created_at;
             $dateTime = new \Datetime($dateSrc);

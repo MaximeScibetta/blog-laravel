@@ -14,9 +14,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Gate::define('store-post', function($user){
-            return $user->is_admin;
-        });
+        // Gate::define('store-post', function($user){
+        //     return $user->is_admin;
+        // });
     }
 
     /**

@@ -1,3 +1,6 @@
+@extends('layouts.main')
+
+@section('login-content')
 <form action="/login" method="post">
     {{csrf_field()}}
     <div class="form-group">
@@ -10,3 +13,4 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+@endsection

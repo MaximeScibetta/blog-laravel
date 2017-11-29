@@ -16,6 +16,7 @@
                 @yield('main-content')
                 @yield('single-content')
                 @yield('add-content')
+                @yield('login-content')
             </div>
             @include('layouts.aside')
         </div>

@@ -1,3 +1,6 @@
+@extends('layouts.main')
+
+@section('comment-content')
 <form action="/comments" method="post">
     {{csrf_field()}}
     @if(Auth::check())
@@ -15,3 +18,4 @@
     @endif
 </form>
 @include('partials.validation-errors')
+@endsection

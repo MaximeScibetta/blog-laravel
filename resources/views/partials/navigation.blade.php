@@ -7,7 +7,7 @@
         <a class="nav-link" href="#">Press</a>
         <a class="nav-link" href="#">About</a>
         @if(Auth::check())
-            @can('store-post')
+            @can('store_post', Blog\Post::class)
                 <a class="nav-link" href="/store-post">Create Post</a>
             @endcan
             <a href="" class="nav-link">{{Auth::user()->name}}</a>

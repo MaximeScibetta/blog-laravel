@@ -22,9 +22,9 @@ Route::get('/post/{post}', 'PostController@show');
 Route::post('/comments', 'CommentsController@store')->middleware('auth');
 
 Route::get('/store-post', function() {
-    return view('posts.store')->middleware('can:store-post');
-});
-Route::post('/store-post', 'PostController@store')->middleware('can:store-post');
+    return view('posts.store');
+})->middleware('can:store_post,Blog\Post');
+Route::post('/store-post', 'PostController@store')->middleware('can:store_post,Blog\Post');
 
 Route::get('/login', 'SessionController@create')->name('login');
 Route::post('/login', 'SessionController@authenticate');
