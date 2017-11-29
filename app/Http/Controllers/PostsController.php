@@ -24,4 +24,14 @@ class PostsController extends Controller
         return view('posts.show', compact('post'));
     }
 
+    public function archives($month, $year){
+        $archivePosts = Post::archives($month, $year)->latest()->get();
+        foreach ($archivePosts as $post) {
+            $dateSrc = $post->created_at;
+            $dateTime = new \Datetime($dateSrc);
+            $date = $dateTime->format('F d, Y');
+        }
+        $archivePosts->load('user');
+        return view('posts.archive', compact('archivePosts', 'date'));
+    }
 }

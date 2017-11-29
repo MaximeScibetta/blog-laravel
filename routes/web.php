@@ -16,6 +16,7 @@ use Blog\Post;
 
 Route::get('/', 'PostsController@index')->name('home');
 Route::get('/posts', 'PostsController@index');
+Route::get('/posts/month/{month}/year/{year}', 'PostsController@archives');
 
 Route::get('/post/{post}', 'PostController@show');
 Route::get('/post/edit/{post}', 'PostController@edit');
@@ -33,3 +34,4 @@ Route::post('/login', 'SessionController@authenticate');
 Route::get('/logout', 'SessionController@destroy');
 Route::get('/register', 'RegistrationController@register');
 Route::post('/register', 'RegistrationController@store');
+

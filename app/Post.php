@@ -38,4 +38,8 @@ class Post extends Model
     public function comments(){
         return $this->hasMany(Comment::class);
     }
+
+    public function scopeArchives($query, $month, $year){
+        return $query->whereRaw('MONTH(created_at)=?', $month)->whereRaw('YEAR(created_at)=?', $year);
+    }
 }

@@ -4,7 +4,7 @@
         <?php setLocale(LC_TIME, 'fr_FR') ;?>
         <ol class="list-unstyled">
             @foreach($archives as $archive)
-                <li><a href="#">{{ucfirst($archive->formatLocalized('%B %Y'))}}</a></li>
+                <li><a href="/posts/month/{{$archive->month}}/year/{{$archive->year}}">{{ucfirst($archive->formatLocalized('%B %Y'))}}</a></li>
             @endforeach
         </ol>
     </div>
